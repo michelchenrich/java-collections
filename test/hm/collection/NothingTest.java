@@ -18,6 +18,13 @@ class NothingTest {
     }
     
     @Test
+    void flatMapReturnsSelf() {
+        assertSame(Maybe.nothing(), Maybe.nothing().flatMap((ignored) -> {
+            throw new RuntimeException();
+        }));
+    }
+    
+    @Test
     void doesNotRun() {
         Maybe.nothing().run((ignored) -> {
             throw new RuntimeException();

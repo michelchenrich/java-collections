@@ -21,6 +21,8 @@ public interface Maybe<T> {
     
     <M> Maybe<M> map(Function<T, M> mapper);
     
+    <M> Maybe<M> flatMap(Function<T, Maybe<M>> mapper);
+    
     void run(Consumer<T> consumer);
     
     T or(T value);

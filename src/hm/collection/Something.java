@@ -19,6 +19,10 @@ class Something<T> implements Maybe<T> {
         return Maybe.of(mapper.apply(value));
     }
     
+    public <M> Maybe<M> flatMap(Function<T, Maybe<M>> mapper) {
+        return mapper.apply(value);
+    }
+    
     public void run(Consumer<T> consumer) {
         consumer.accept(value);
     }

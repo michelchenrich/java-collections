@@ -47,6 +47,12 @@ class SomethingTest {
     }
     
     @Test
+    void flatMapToSomethingElseWhichIsMaybe() {
+        assertEquals(Maybe.of("SOMETHING"),
+                     Maybe.of("something").flatMap(v -> Maybe.of(v.toUpperCase())));
+    }
+    
+    @Test
     void runsWithValue() {
         StringBuilder builder = new StringBuilder();
         Maybe.of("something").run(builder::append);

@@ -11,6 +11,10 @@ enum Nothing implements Maybe {
         return false;
     }
     
+    public Maybe flatMap(Function ignored) {
+        return this;
+    }
+    
     public void run(Consumer ignored) {
     }
     
