@@ -24,6 +24,12 @@ class SomethingTest {
     }
     
     @Test
+    void doubleMaybeIsFlattened() {
+        assertEquals(Maybe.of("something"),
+                     Maybe.of(Maybe.of("something")));
+    }
+    
+    @Test
     void exists() {
         assertTrue(Maybe.of("something").exists());
     }

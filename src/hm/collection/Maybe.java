@@ -9,6 +9,10 @@ public interface Maybe<T> {
         return Nothing.INSTANCE;
     }
     
+    static <T> Maybe<T> of(Maybe<T> maybe) {
+        return maybe == null ? nothing() : maybe;
+    }
+    
     static <T> Maybe<T> of(T value) {
         return value == null ? nothing() : new Something<>(value);
     }
